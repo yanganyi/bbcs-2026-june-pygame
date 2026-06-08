@@ -34,6 +34,7 @@ while running:
             running = False
 
     # clear background
+    # the three numbers is in rgb formatting (Google it!)
     screen.fill((255, 255, 255))
 
     # draw the player
