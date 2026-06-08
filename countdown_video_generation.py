@@ -4,7 +4,7 @@ from moviepy import VideoFileClip
 from PIL import Image,ImageDraw,ImageFont,ImageFilter
 
 def font(s):
- p=["/System/Library/Fonts/Supplemental/Arial Black.ttf"]
+ p=["C:/Windows/Fonts/ariblk.ttf"]
  return ImageFont.truetype(next(x for x in p if os.path.exists(x)),s)
 
 def overlay(w,h,txt):
@@ -22,4 +22,4 @@ def process(d):
  c=v.transform(gf);c.write_videofile(f"assets/fih_{d if d<60 else d//60}{'sec' if d<60 else 'min'}.mp4",codec="libx264",audio_codec="aac",threads=1,preset="ultrafast",logger=None);v.close();c.close()
 
 if __name__=="__main__":
- with Pool(6) as p:p.map(process,[5])
+ with Pool(10) as p:p.map(process,[5,15,30,120,300,600,900,1200,1500,1800])
